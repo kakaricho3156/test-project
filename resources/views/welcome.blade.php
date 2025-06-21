@@ -273,5 +273,22 @@
         @if (Route::has('login'))
             <div class="h-14.5 hidden lg:block"></div>
         @endif
+
+        @auth
+        <p>
+            {{ Auth::user()->name }}さん、こんにちは
+            {{ Auth::user()->role }}さん、こんにちは
+
+        </p>
+
+        @endauth
+
+        @can('test')
+        ようこそ、管理者
+
+        @endcan
+        <x-primary-button>
+            ボタン
+        </x-primary-button>
     </body>
 </html>
